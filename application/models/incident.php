@@ -13,7 +13,7 @@ class Incident extends CI_Controller {
 
 	public function get_categories_by_id($id){
 		$query = "SELECT * FROM incidentCategories where id = ?;";
-		$values = array($id);
+		$values = array($id['id']);
 		return $this->db->query($query, $values) -> row_array();
 	}
 }
