@@ -19,3 +19,4 @@ class Incidents extends CI_Controller {
 		$data = array("category" => $gotCategory);
 		echo json_encode($data);
 }
+}
