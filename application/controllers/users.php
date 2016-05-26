@@ -26,6 +26,19 @@ class Users extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function get_user_by_username(){
+		$user = $this->input->post();
+		$founduser = $this->User->get_user_by_username($user);
+		if($founduser) {
+			$data = array("foundUser" => $founduser);
+			echo json_encode($data);
+		}
+		else {
+			$data = array("notFound" => "Please register");
+			echo json_encode($data);
+		}
+	}
+
 
 
 

@@ -28,4 +28,10 @@ class User extends CI_Controller {
 		return $this->db->query($query, $values) -> row_array();
 	}
 
+	public function get_user_by_username($user){
+		$query = "SELECT * FROM users WHERE username = ? AND password = ?;";
+		$values = array($user['username'], $user['password']);
+		return $this->db->query($query, $values) -> row_array();
+	}
+
 }
