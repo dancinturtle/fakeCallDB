@@ -15,5 +15,17 @@ class User extends CI_Controller {
 		return $id;
 	}
 
+	public function update_user($updates) {
+		$query = "UPDATE users SET first_name = ?, last_name = ?, username=?, password = ?, age = ?, updated_at = NOW() where id = ?;";
+		$values = array($updates['firstname'], $updates['lastname'], $updates['username'], $updates['password'], $updates['age'], $updates['id']);
+		return $this->db->query($query, $values);
+
+	}
+
+	public function get_user_by_id($id) {
+		$query = "SELECT * FROM users WHERE id = ?;";
+		$values = array($id);
+		return $this->db->query($query, $values) -> row_array();
+	}
 
 }

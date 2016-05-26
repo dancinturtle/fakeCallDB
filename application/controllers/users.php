@@ -17,6 +17,15 @@ class Users extends CI_Controller {
 		$data = array("newid" => $added_user);
 		echo json_encode($data);
 	}
+	public function update_user_and_get_new_info(){
+		$updates = $this->input->post();
+		$id = $updates['id'];
+		$updated_user = $this->User->update_user($updates);
+		$updated_info = $this->User->get_user_by_id($id);
+		$data = array("updatedInfo" => $updated_info);
+		echo json_encode($data);
+	}
+
 
 
 
