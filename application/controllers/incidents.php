@@ -18,5 +18,12 @@ class Incidents extends CI_Controller {
 		$gotCategory = $this->Incident->get_categories_by_id($id);
 		$data = array("category" => $gotCategory);
 		echo json_encode($data);
-}
+	}
+
+	public function add_incident(){
+		$incident = $this->input->post();
+		$reported = $this->Incident->add_incident($incident);
+		$data = array("addedIncident" => $reported);
+		echo json_encode($data);
+	}
 }
