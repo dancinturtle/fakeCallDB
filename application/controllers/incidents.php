@@ -28,7 +28,7 @@ class Incidents extends CI_Controller {
 	}
 
 	public function add_incident_type(){
-		$incident = $this->input->post('incidentID');
+		$incident = $this->input->post();
 		$addedType = $this->Incident->add_incident_type($incident);
 		$data = array("addedType" => $addedType);
 		echo json_encode($data);
