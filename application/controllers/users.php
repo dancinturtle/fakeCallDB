@@ -39,7 +39,12 @@ class Users extends CI_Controller {
 		}
 	}
 
-
+	public function add_contact(){
+		$newcontact = $this->input->post();
+		$added_contact = $this->User->add_contact($newcontact);
+		$data = array("newcontact" => $added_contact);
+		echo json_encode($data);
+	}
 
 
 

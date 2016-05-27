@@ -34,4 +34,10 @@ class User extends CI_Controller {
 		return $this->db->query($query, $values) -> row_array();
 	}
 
+	public function add_contact($newcontact) {
+		$query = "INSERT INTO contacts (user_id, first_name, last_name, phone_number, email, created_at, updated_at) values (?,?,?, ?,?,NOW(),NOW());";
+		$values = array($newcontact['userid'], $newcontact['firstname'], $newcontact['lastname'], $newcontact['number'], $newcontact['email']);
+		return $this->db->query($query, $values);
+	}
+
 }
