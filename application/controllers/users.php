@@ -46,6 +46,13 @@ class Users extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function get_users_contacts(){
+		$userid = $this->input->post();
+		$contacts = $this->User->get_users_contacts($userid);
+		$data = array("contacts" => $contacts);
+		echo json_encode($data);
+	}
+
 
 
 

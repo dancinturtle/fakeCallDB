@@ -39,5 +39,10 @@ class User extends CI_Controller {
 		$values = array($newcontact['userid'], $newcontact['firstname'], $newcontact['lastname'], $newcontact['number'], $newcontact['email']);
 		return $this->db->query($query, $values);
 	}
+	public function get_users_contacts($userid) {
+		$query = "SELECT * FROM contacts WHERE user_id = ?;";
+		$values = array($userid['id']);
+		return $this->db->query($query, $values) -> result_array();
+	}
 
 }
