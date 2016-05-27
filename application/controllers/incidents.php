@@ -33,4 +33,10 @@ class Incidents extends CI_Controller {
 		$data = array("addedType" => $addedType);
 		echo json_encode($data);
 	}
+
+	public function get_detailed_incidents(){
+		$detailed = $this->Incident->get_detailed_incidents();
+		$data = array("all" => $detailed);
+		echo json_encode($data);
+	}
 }

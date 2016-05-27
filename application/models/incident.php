@@ -32,4 +32,12 @@ class Incident extends CI_Controller {
 		$id = $this->db->insert_id();
 		return $id;
 	}
+
+	public function get_detailed_incidents() {
+		return $this->db->query("SELECT incidents.id, incidents.date, incidents.description, incidents.coordinates, incidentCategories.title
+			from incidents
+			left join incidentTypes on incidents.id = incident_id
+			left join incidentCategories on incidentCategory_id = incidentCategories.id") -> result_array();
+
+	}
 }
