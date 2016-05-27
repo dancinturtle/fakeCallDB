@@ -28,6 +28,8 @@ class Incident extends CI_Controller {
 	public function add_incident_type($incident) {
 		$query = "INSERT INTO incidentTypes (incident_id, incidentCategory_id) values (?, ?);";
 		$values = array($incident['incidentID'], $incident['categoryID']);
-		return $this->db->query($query, $values);
+		$this->db->query($query, $values);
+		$id = $this->db->insert_id();
+		return $id;
 	}
 }
